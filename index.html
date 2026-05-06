@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataDial AI | Watch Intelligence Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;500;600&family=Rajdhani:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="logo.png">
+    
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="stars"></div>
+        <div class="stars2"></div>
+        <div class="stars3"></div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">⚡</div>
+                <div class="logo-text">
+                    <h1>DataDial AI</h1>
+                    <span>Intelligent Watch Analysis</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- Left Panel - Stats & Controls -->
+            <div class="control-panel">
+                <div class="panel-section">
+                    <h3><i class="fas fa-chart-network"></i> Analytics Dashboard</h3>
+                    <div class="stat-cards">
+                        <div class="stat-card">
+                            <div class="stat-icon">📊</div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="totalProducts">220</span>
+                                <span class="stat-label">Total Watches</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">💰</div>
+                            <div class="stat-info">
+                                <span class="stat-value">₹12.8K</span>
+                                <span class="stat-label">Avg Price</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">⭐</div>
+                            <div class="stat-info">
+                                <span class="stat-value">4.3</span>
+                                <span class="stat-label">Avg Rating</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h3><i class="fas fa-rocket"></i> AI Capabilities</h3>
+                    <div class="capabilities">
+                        <div class="capability">
+                            <i class="fas fa-search-dollar"></i>
+                            <span>Price Intelligence</span>
+                        </div>
+                        <div class="capability">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Market Analysis</span>
+                        </div>
+                        <div class="capability">
+                            <i class="fas fa-robot"></i>
+                            <span>Smart Comparisons</span>
+                        </div>
+                        <div class="capability">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Insight Generation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Chat Area -->
+            <div class="chat-interface">
+                <div class="chat-header">
+                    <div class="ai-avatar">
+                        <div class="avatar-pulse"></div>
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="chat-info">
+                        <h3>DataDial Assistant</h3>
+                        <p>Smart Watch Analysis & Recommendations</p>
+                    </div>
+                </div>
+
+                <div class="conversation-flow" id="conversation">
+                    <!-- Welcome Message -->
+                    <div class="message bot-message welcome-message">
+                        <div class="message-avatar">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="message-content">
+                            <div class="message-header">
+                                <span class="sender">DataDial AI</span>
+                                <span class="timestamp">Just now</span>
+                            </div>
+                            <div class="message-text">
+    <p>Welcome to <strong>DataDial AI</strong> - Your Intelligent Watch Analysis Platform!</p>
+    <p>I can analyze prices, compare brands, and find the perfect watch based on your preferences. What would you like to explore today?</p>
+    
+    <div class="welcome-features">
+        <p><strong>Here are a few ways I can help you with watch analysis:</strong></p>
+        <ul>
+            <li>🔍 "Which watch is the most expensive?"</li>
+            <li>⭐ "Show me smartwatches with rating above 4.5"</li>
+            <li>💰 "What is the average price of luxury watches?"</li>
+            <li>📊 "Which brand has the most reviews?"</li>
+            <li>🛍️ "List watches under ₹10000"</li>
+            <li>⚖️ "Compare Titan and Casio prices"</li>
+        </ul>
+        <p><em>Type 'help' for more options or 'quit' to exit.</em></p>
+    </div>
+</div>
+                            <div class="message-actions">
+                                <button class="action-btn" onclick="askQuestion('Show me luxury watches under 20000')">
+                                    <i class="fas fa-gem"></i>
+                                    Luxury Picks
+                                </button>
+                                <button class="action-btn" onclick="askQuestion('Best smartwatch for fitness')">
+                                    <i class="fas fa-heartbeat"></i>
+                                    Fitness Focus
+                                </button>
+                                <button class="action-btn" onclick="askQuestion('Compare Titan and Casio')">
+                                    <i class="fas fa-balance-scale"></i>
+                                    Brand Compare
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-section">
+                    <div class="input-container">
+                        <div class="input-icon">
+                            <i class="fas fa-comment-dots"></i>
+                        </div>
+                        <input type="text" id="questionInput" 
+                               placeholder="Ask DataDial AI about watches... (e.g., 'Show me premium watches under ₹15000')"
+                               onkeypress="handleKeyPress(event)">
+                        <button class="send-btn" onclick="sendQuestion()">
+                            <i class="fas fa-paper-plane"></i>
+                            <span class="btn-text">Analyze</span>
+                        </button>
+                    </div>
+                    <div class="input-suggestions">
+                        <span>Quick insights:</span>
+                        <button onclick="askQuestion('Most expensive smartwatch?')">Premium Tech</button>
+                        <button onclick="askQuestion('Sports watches with GPS')">Sports + GPS</button>
+                        <button onclick="askQuestion('Apple vs Samsung comparison')">Brand Battle</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="tech-stack">
+                    <span>Powered by DataDial AI</span>
+                    <div class="tech-icons">
+                        <i class="fab fa-python" title="Python AI"></i>
+                        <i class="fas fa-brain" title="Machine Learning"></i>
+                        <i class="fas fa-chart-line" title="Data Analytics"></i>
+                    </div>
+                </div>
+                <div class="system-info">
+                    <span>Intelligent Watch Analysis Platform v2.1</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
